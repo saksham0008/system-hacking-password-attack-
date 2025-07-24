@@ -16,7 +16,7 @@ Screenshots of each tool in action are provided in the `screenshots/` folder.
 See `commands.txt` for a complete list of commands used in the project.
 
 ## 📄 Report
-Full presentation/report included: `CS_CAP_SAKSHAM_GUPTA.pdf.pptx`
+Full presentation/report included: `System_hacking_password_attack.pptx`
 
 ## ⚠️ Disclaimer
 > This project was performed on controlled and public test environments for educational purposes only. Do not attempt these techniques on unauthorized systems.
